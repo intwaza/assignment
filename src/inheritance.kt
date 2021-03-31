@@ -25,7 +25,7 @@ open class Transport(var make: String, var model: String,var color: String,var c
     fun identity(){
         println("I am $color, $make and $model")
     }
-    fun calculateParkingFees(hours: Int):Int{
+   open fun calculateParkingFees(hours: Int):Int{
         return hours*20
     }
 
@@ -36,6 +36,9 @@ class Car(make:String, model:String, color:String, capacity:Int):Transport(make,
 
 
 class Bus(make:String,model:String, color:String, capacity:Int):Transport(make, model, color, capacity) {
+    override fun calculateParkingFees(hours: Int):Int{
+        return hours * capacity
+    }
     fun maxTripFare(fare: Double): Double {
         var max = 0
         return max + fare
